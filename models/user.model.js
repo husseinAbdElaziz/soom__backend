@@ -1,8 +1,11 @@
 const bcryptjs = require('bcryptjs');
 const { Schema, model } = require('mongoose');
-const jwtAuthKey = require('../config/config.js');
 
 const jwt = require('jsonwebtoken');
+
+const { jwtAuthKey } = require('../config/config');
+
+const AppError = require('../utils/appError');
 
 const userSchema = new Schema(
   {
@@ -14,18 +17,19 @@ const userSchema = new Schema(
       unique: true,
     },
     password: { type: String, required: true },
-    username: String,
+    username: { type: String, unique: true, lowercase: true },
+    displayName: String,
     country: String,
     city: String,
     phone: String,
     language: String,
     gander: { type: String, enum: ['male', 'female'] },
     photo: String,
-    avatarNo: Number,
     facebook: String,
     twitter: String,
     instagram: String,
     bio: String,
+    avatarNo: Number,
     role: Number,
     isMailVerified: Boolean,
     currentBalance: Number,
@@ -37,6 +41,35 @@ const userSchema = new Schema(
   },
   { timestamps: true }
 );
+
+/**
+ * @description handle mongoose validation Errors
+ */
+userSchema.post('save', function (err, doc, next) {
+  // to return custom error message instead of mongo error message
+  if (
+    err.message.includes(
+      'User validation failed: username: Path `username` is invalid'
+    )
+  ) {
+    return next(new AppError('usernameInvalid'));
+  }
+
+  // dublicated Email && username
+  if (err.name === 'MongoError' && err.code === 11000) {
+    // change message based error name
+    let msg;
+    if (err?.message?.includes('email')) {
+      msg = 'mailUsed';
+    } else if (err?.message?.includes('username')) {
+      msg = 'usernameUsed';
+    }
+
+    return next(new AppError(msg));
+  } else {
+    next(error);
+  }
+});
 
 /**
  * add temp user name
@@ -64,12 +97,12 @@ userSchema.pre('findOneAndUpdate', function (next) {
 /**
  * @description generate jwt token
  */
-userSchema.methods.generateToken = function (doc, remaberUser) {
+userSchema.methods.generateToken = function (remaberUser) {
   const token = jwt.sign(
     {
-      _id: doc._id,
-      username: doc.username,
-      email: doc.email,
+      _id: this._id,
+      username: this.username,
+      email: this.email,
     },
     jwtAuthKey,
     {
@@ -82,8 +115,8 @@ userSchema.methods.generateToken = function (doc, remaberUser) {
 /**
  * validate password when user try to login
  */
-userSchema.methods.validatePassword = async function (doc, password) {
-  return await bcryptjs.compare(password.toString(), doc.password);
+userSchema.methods.validatePassword = async function (password) {
+  return await bcryptjs.compare(password.toString(), this.password);
 };
 
 /**
@@ -94,4 +127,4 @@ userSchema.methods.generatePassword = async function (password) {
   return await bcryptjs.hash(password.toString(), salt);
 };
 
-exports = model('user', userSchema);
+module.exports = model('user', userSchema);

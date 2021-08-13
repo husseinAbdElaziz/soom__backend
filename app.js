@@ -42,7 +42,7 @@ app.use(
 /**
  * API route
  */
-const apiRoutes = require('./routes/apiRoutes');
+const apiRoutes = require('./routes');
 app.use('/api/v1', apiRoutes);
 
 // create uploads folder if not exist

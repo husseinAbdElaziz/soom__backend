@@ -5,7 +5,6 @@ const { databaseUrl } = require('./config');
  * @description connect to mongoDB
  */
 module.exports = dbConnect = async () => {
-  console.log(databaseUrl);
   try {
     await connect(databaseUrl, {
       useCreateIndex: true,

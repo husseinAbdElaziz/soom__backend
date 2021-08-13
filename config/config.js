@@ -1,10 +1,14 @@
 /**
  * project configuration
  */
-exports.databaseUrl = process.env.DATABASE_URL;
-exports.jwtAuthKey = process.env.JWT_TOKEN_KEY;
-exports.jwtMailActivationKey = process.env.ACTIVATE_MAIL_KEY;
-exports.smtpMailHost = process.env.MAIL_HOST;
-exports.smtpMailUser = process.env.MAIL_USER;
-exports.smtpMailPassword = process.env.MAIL_PWD;
-exports.smtpMailPort = process.env.MAIL_PORT;
+
+module.exports = {
+  databaseUrl: process.env.DATABASE_URL,
+  jwtAuthKey: process.env.JWT_TOKEN_KEY,
+  jwtMailActivationKey: process.env.ACTIVATE_MAIL_KEY,
+  siteUrl: process.env.SITE_URL,
+  smtpMailHost: process.env.MAIL_HOST,
+  smtpMailUser: process.env.MAIL_USER,
+  smtpMailPassword: process.env.MAIL_PWD,
+  smtpMailPort: process.env.MAIL_PORT,
+};

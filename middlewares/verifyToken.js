@@ -2,7 +2,7 @@ const { verify } = require('jsonwebtoken');
 
 const { jwtAuthKey } = require('../config/config');
 
-const { AppError } = require('../utils/appError');
+const AppError = require('../utils/appError');
 
 /**
  * @description middleware to verify JWT token from authorization header.
