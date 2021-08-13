@@ -3,7 +3,7 @@
  * @param message error message
  * @param statusCode error status code
  */
-export class AppError extends Error {
+class AppError extends Error {
   constructor(message, statusCode) {
     super(message);
     this.statusCode = statusCode;
@@ -13,3 +13,5 @@ export class AppError extends Error {
     Error.captureStackTrace(this, this.constructor);
   }
 }
+
+module.exports.AppError;

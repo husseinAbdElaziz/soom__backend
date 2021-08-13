@@ -1,8 +1,8 @@
-import { compare, genSalt, hash } from 'bcryptjs';
-import { model, Schema } from 'mongoose';
-import { jwtAuthKey } from '../config/config.js';
+const bcryptjs = require('bcryptjs');
+const { Schema, model } = require('mongoose');
+const jwtAuthKey = require('../config/config.js');
 
-import { sign } from 'jsonwebtoken';
+const jwt = require('jsonwebtoken');
 
 const userSchema = new Schema(
   {
@@ -65,7 +65,7 @@ userSchema.pre('findOneAndUpdate', function (next) {
  * @description generate jwt token
  */
 userSchema.methods.generateToken = function (doc, remaberUser) {
-  const token = sign(
+  const token = jwt.sign(
     {
       _id: doc._id,
       username: doc.username,
@@ -83,15 +83,15 @@ userSchema.methods.generateToken = function (doc, remaberUser) {
  * validate password when user try to login
  */
 userSchema.methods.validatePassword = async function (doc, password) {
-  return await compare(password.toString(), doc.password);
+  return await bcryptjs.compare(password.toString(), doc.password);
 };
 
 /**
  * generate hashed password using bcrypt library
  **/
 userSchema.methods.generatePassword = async function (password) {
-  const salt = await genSalt(10);
-  return await hash(password.toString(), salt);
+  const salt = await bcryptjs.genSalt(10);
+  return await bcryptjs.hash(password.toString(), salt);
 };
 
-export default model('user', userSchema);
+exports = model('user', userSchema);

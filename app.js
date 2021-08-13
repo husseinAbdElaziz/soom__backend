@@ -1,16 +1,16 @@
-import express from 'express';
+const express = require('express');
 
 const app = express();
 
 // apply dot env file
-import { config } from 'dotenv';
+const { config } = require('dotenv');
 config();
 
 // enable CORS
-import cors from 'cors';
+const cors = require('cors');
 cors();
 
-import path from 'path';
+const path = require('path');
 
 /**
  * parse request body
@@ -20,19 +20,19 @@ app.use(express.json());
 /**
  * using mongoSanitize pakage to prevent nosql injection attack
  */
-import mongoSanitize from 'express-mongo-sanitize';
+const mongoSanitize = require('express-mongo-sanitize');
 app.use(mongoSanitize());
 
 /**
  * @description compress site data
  */
-import compression from 'compression';
+const compression = require('compression');
 app.use(compression());
 
 /**
  * helmet package adding extra security headers
  */
-import helmet from 'helmet';
+const helmet = require('helmet');
 app.use(
   helmet({
     contentSecurityPolicy: false,
@@ -42,11 +42,11 @@ app.use(
 /**
  * API route
  */
-import apiRoutes from './routes/apiRoutes.js';
+const apiRoutes = require('./routes/apiRoutes');
 app.use('/api/v1', apiRoutes);
 
 // create uploads folder if not exist
-import mkdirp from 'mkdirp';
+const mkdirp = require('mkdirp');
 (async () => {
   await mkdirp(path.join(__dirname, 'uploads'));
   await mkdirp(path.join(__dirname, 'uploads', 'users'));
@@ -59,8 +59,8 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 /**
  * error Handlers
  */
-import { AppError } from './utils/appError.js';
-import globalErrorHandler from './controllers/error.controller.js';
+const { AppError } = require('./utils/appError');
+const globalErrorHandler = require('./controllers/error.controller');
 
 app.all('*', (req, res, next) => {
   next(new AppError(`Can't find ${req.originalUrl} on server`));
@@ -71,7 +71,7 @@ app.use(globalErrorHandler);
 /**
  * fire database connect function
  */
-require('config/dbConnect')();
+require('./config/dbConnect')();
 
 // set PORT
 const PORT = process.env.PORT || 3000;

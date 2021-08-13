@@ -1,7 +1,7 @@
 /**
  * @description error handler controller to hande project errors
  */
-export default (err, req, res, next) => {
+module.exports = errHandler = (err, req, res, next) => {
   console.error(err);
   // error code based on error
   err.statusCode = err.statusCode || 500;

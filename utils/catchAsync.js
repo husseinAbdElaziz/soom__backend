@@ -3,5 +3,4 @@
  * @param fn needed to cache async handle
  * @returns funcion with promise cache handled
  */
-module.exports = catchAsync = (fn) => (req, res, next) =>
-  fn(req, res, next).catch(next);
+exports.catchAsync = (fn) => (req, res, next) => fn(req, res, next).catch(next);

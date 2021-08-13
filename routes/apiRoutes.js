@@ -3,12 +3,11 @@
  * to handle all APIs logic
  */
 
-import { Router } from 'express';
-
-const router = Router();
+const router = require('express').Router();
 
 //user APIs route
-import user from './user/user.routes.js';
+const user = require('./user/user.routes');
+
 router.use('/user', user);
 
-export default router;
+module.exports = router;

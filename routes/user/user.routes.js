@@ -1,8 +1,6 @@
-import { Router } from 'express';
-import { userRegister } from '../../controllers/user.controller.js';
-
-const router = Router();
+const router = require('express').Router();
+const { userRegister } = require('../../controllers/user.controller');
 
 router.route('/').post(userRegister);
 
-export default router;
+module.exports = router;

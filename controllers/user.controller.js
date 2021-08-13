@@ -1,7 +1,7 @@
-import { catchAsync } from '../utils/catchAsync.js';
-import UserModel from '../models/user.model.js';
+const { catchAsync } = require('../utils/catchAsync');
+const UserModel = require('../models/user.model');
 
-export const userRegister = catchAsync(async (req, res, next) => {
+exports.userRegister = catchAsync(async (req, res, next) => {
   const userData = req.body;
 
   const newUser = new UserModel(userData);
