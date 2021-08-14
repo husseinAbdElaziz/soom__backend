@@ -67,7 +67,7 @@ userSchema.post('save', function (err, doc, next) {
 
     return next(new AppError(msg));
   } else {
-    next(error);
+    next(err);
   }
 });
 
@@ -76,7 +76,7 @@ userSchema.post('save', function (err, doc, next) {
  */
 userSchema.pre('save', function (next) {
   if (!this.username) {
-    this.username = this.email?.replace('@', '_')?.replace('.', '_');
+    this.username = this.email?.toLowerCase()?.replace(/[\W+\.~]/g, '_');
   }
   next();
 });
