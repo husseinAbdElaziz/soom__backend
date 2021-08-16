@@ -50,7 +50,7 @@ const mkdirp = require('mkdirp');
 (async () => {
   await mkdirp(path.join(__dirname, 'uploads'));
   await mkdirp(path.join(__dirname, 'uploads', 'users'));
-  await mkdirp(path.join(__dirname, 'uploads', 'files'));
+  await mkdirp(path.join(__dirname, 'uploads', 'products'));
 })();
 
 // serve static files
@@ -59,7 +59,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 /**
  * error Handlers
  */
-const { AppError } = require('./utils/appError');
+const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/error.controller');
 
 app.all('*', (req, res, next) => {

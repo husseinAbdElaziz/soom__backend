@@ -1,3 +1,4 @@
+// data to delete from create user data
 exports.itemsToDeleteFromUserData = [
   'email',
   'password',
@@ -11,3 +12,6 @@ exports.itemsToDeleteFromUserData = [
   'isMailVerified',
   'avatarNo',
 ];
+
+// data to delete from create product data
+exports.itemsToDeleteFromProduct = ['ownerId', 'lastBidId', 'isSoldOut'];

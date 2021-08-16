@@ -3,9 +3,9 @@ const { Schema, model } = require('mongoose');
 
 const jwt = require('jsonwebtoken');
 
-const { jwtAuthKey } = require('../config/config');
+const { jwtAuthKey } = require('../../config/config');
 
-const AppError = require('../utils/appError');
+const AppError = require('../../utils/appError');
 
 const userSchema = new Schema(
   {

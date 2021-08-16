@@ -7,7 +7,7 @@ const mime = require('mime-types');
  * 2. validate file mime type to accept only images
  * 3. extract image extention to add to file name
  * 4. save image with time now as name
- * @param config {allowOnlyImages, isFiles}
+ * @param config { isUserImage }
  * @returns upload options
  */
 exports.multerOptions = (config) => {
@@ -16,42 +16,33 @@ exports.multerOptions = (config) => {
     // set image destination path
     destination: function (req, file, cb) {
       // change files dir if files
-      if (config.isFiles) {
-        cb(null, path.join('uploads', 'files'));
-      } else {
+      if (config?.isUserImage) {
         cb(null, path.join('uploads', 'users'));
+      } else {
+        cb(null, path.join('uploads', 'products'));
       }
     },
 
     // set file name config
     filename: function (req, file, cb) {
       // validate image type Regex
-      if (config.allowOnlyImages) {
-        if (!file.mimetype.match(/image\//)) {
-          return cb(new Error('OnlyImageAllowed'), false);
-        }
-      } else if(config.allowOnlyVoice){
-        if (
-          !file.mimetype.match(
-            /^image\/(jpe?g|png)$|^application\/pdf$|^application\/postscript$|^audio\/webm$/i
-          )
-        ) {
-          return cb(new Error('OnlyImagesPdfAiAllowed'), false);
-        }
+      if (!file.mimetype.match(/image\//)) {
+        return cb(new Error('OnlyImageAllowed'), false);
       }
 
       // get file extention useing mime-types package
       const fileExtention = mime.extension(file.mimetype);
 
       // set file name
-      if (!config.isFiles) {
-        cb(null, `${file.fieldname}-${req.user._id}.${fileExtention}`);
+      if (config?.isUserImage) {
+        cb(null, `${file.fieldname}_${req.user._id}.${fileExtention}`);
       } else {
         cb(
           null,
-          `${file.fieldname}-${
-            file.originalname
-          }-${Date.now()}.${fileExtention}`
+          `${file.fieldname}_${file.originalname.replace(
+            /\./g,
+            '_'
+          )}_${Date.now()}.${fileExtention}`
         );
       }
     },
@@ -62,6 +53,6 @@ exports.multerOptions = (config) => {
   };
 
   // return uploade image options
-  const upload = multer({ storage:storage, limits: limit });
+  const upload = multer({ storage: storage, limits: limit });
   return upload;
 };

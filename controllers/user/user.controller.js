@@ -1,8 +1,8 @@
-const { catchAsync } = require('../utils/catchAsync');
-const UserModel = require('../models/user.model');
+const { catchAsync } = require('../../utils/catchAsync');
+const UserModel = require('../../models/user/user.model');
 
-const AppError = require('../utils/appError');
-const { itemsToDeleteFromUserData } = require('../utils/global');
+const AppError = require('../../utils/appError');
+const { itemsToDeleteFromUserData } = require('../../utils/global');
 
 /**
  * @description create user account
@@ -84,4 +84,21 @@ exports.userUpdate = catchAsync(async (req, res, next) => {
     status: 'success',
     data: updatedUserData,
   });
+});
+
+/**
+ * @description update user image
+ */
+exports.updateUserImage = catchAsync(async (req, res, next) => {
+  // update user image url in database
+  const { photo } = await UserModel.findByIdAndUpdate(
+    req.user._id,
+    {
+      photo: req.file.filename,
+    },
+    { new: true }
+  );
+
+  // send success message with new photo url
+  res.json({ status: 'success', data: { photo } });
 });
