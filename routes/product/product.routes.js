@@ -5,7 +5,11 @@ const router = require('express').Router();
 const { multerOptions } = require('../../utils/multer-options');
 
 // product routes
-router.route('/').post(verifyToken, product.addProduct);
+router
+  .route('/')
+  .get(product.getProducts)
+  .post(verifyToken, product.addProduct)
+  .put(verifyToken, product.updateProduct);
 
 // upload user image route
 router.post(

@@ -14,4 +14,9 @@ exports.itemsToDeleteFromUserData = [
 ];
 
 // data to delete from create product data
-exports.itemsToDeleteFromProduct = ['ownerId', 'lastBidId', 'isSoldOut'];
+exports.itemsToDeleteFromProduct = [
+  'ownerId',
+  'lastBidId',
+  'isSoldOut',
+  'images',
+];

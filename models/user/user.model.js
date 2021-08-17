@@ -23,7 +23,7 @@ const userSchema = new Schema(
     city: String,
     phone: String,
     language: String,
-    gander: { type: String, enum: ['male', 'female'] },
+    gender: { type: String, enum: ['male', 'female'] },
     photo: String,
     facebook: String,
     twitter: String,
@@ -37,7 +37,7 @@ const userSchema = new Schema(
     packageName: String,
     passwordAttemptsLeft: Number,
     lastLogin: Date,
-    lastfailureLogin: Date,
+    lastFailureLogin: Date,
   },
   { timestamps: true }
 );

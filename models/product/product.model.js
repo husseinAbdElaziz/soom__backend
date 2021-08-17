@@ -8,7 +8,7 @@ const imageSchema = new Schema({
 const productSchema = new Schema(
   {
     ownerId: String,
-    name: String,
+    displayName: String,
     country: String,
     city: String,
     district: String,
@@ -17,12 +17,11 @@ const productSchema = new Schema(
     images: [imageSchema],
     description: String,
     isDeal: { type: Boolean, default: false },
-    dealStartTime: Date,
-    dealEndTime: Date,
+    dealStartDate: Date,
+    dealEndDate: Date,
     areaInSquarMeters: Number,
     streets: Number,
     apartments: Number,
-    furnished: Boolean,
     age: Number,
     rooms: Number,
     portableHeight: Number,
@@ -59,7 +58,17 @@ const productSchema = new Schema(
   },
   {
     timestamps: true,
+    toJSON: { virtuals: true },
+    toObject: { virtuals: true },
   }
 );
+
+// owner data virtual field
+productSchema.virtual('owner', {
+  ref: 'user',
+  localField: 'ownerId',
+  foreignField: '_id',
+  justOne: true,
+});
 
 module.exports = model('product', productSchema);

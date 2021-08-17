@@ -8,7 +8,7 @@ config();
 
 // enable CORS
 const cors = require('cors');
-cors();
+app.use(cors());
 
 const path = require('path');
 

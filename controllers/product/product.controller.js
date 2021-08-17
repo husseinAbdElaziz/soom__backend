@@ -23,9 +23,74 @@ exports.addProduct = catchAsync(async (req, res, next) => {
 
   const product = await newProduct.save();
 
-  console.log(product);
-
   res.json({ status: 'success', message: 'productAdded', data: product });
+});
+
+/**
+ * @description update product
+ */
+exports.updateProduct = catchAsync(async (req, res, next) => {
+  const ownerId = req.user._id;
+
+  const bodyData = req.body;
+
+  itemsToDeleteFromProduct.forEach((item) => {
+    delete bodyData[item];
+  });
+
+  const productdata = await ProductModel.findOneAndUpdate(
+    {
+      _id: bodyData._id,
+      ownerId,
+    },
+    bodyData,
+    { new: true }
+  );
+
+  res.json({ status: 'success', message: 'productAdded', data: productdata });
+});
+
+/**
+ * @description get products
+ */
+exports.getProducts = catchAsync(async (req, res, next) => {
+  const { productStatus } = req.query;
+
+  let filterData = { ...req.query };
+  delete filterData.productStatus;
+
+  const currentTime = new Date().toISOString();
+
+  if (productStatus === 'activeDeals') {
+    filterData = {
+      ...filterData,
+      dealStartDate: { $lte: currentTime },
+      dealEndDate: { $gte: currentTime },
+    };
+  }
+
+  if (productStatus === 'upcomingDeals') {
+    filterData = {
+      ...filterData,
+      dealStartDate: { $gt: currentTime },
+    };
+  }
+
+  if (productStatus === 'endedDeals') {
+    filterData = {
+      ...filterData,
+      dealEndDate: { $lt: currentTime },
+    };
+  }
+
+  const products = await ProductModel.find(filterData).populate({
+    path: 'owner',
+    select: 'username displayName photo',
+  });
+
+  console.log(currentTime);
+
+  res.json({ status: 'success', data: products });
 });
 
 /**
