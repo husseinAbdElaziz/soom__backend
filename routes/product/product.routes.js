@@ -11,6 +11,9 @@ router
   .post(verifyToken, product.addProduct)
   .put(verifyToken, product.updateProduct);
 
+// get single product
+router.get('/:productId', product.getSingleProduct);
+
 // upload user image route
 router.post(
   '/add-images',

@@ -8,7 +8,7 @@ const imageSchema = new Schema({
 const productSchema = new Schema(
   {
     ownerId: String,
-    displayName: String,
+    name: String,
     country: String,
     city: String,
     district: String,
@@ -53,6 +53,8 @@ const productSchema = new Schema(
     driverRoom: Boolean,
     stairs: Boolean,
     guestRooms: Number,
+    salePriceLimit: Number,
+    initialPrice: Number,
     lastBidId: { type: Schema.Types.ObjectId, ref: 'transactions' },
     isSoldOut: Boolean,
   },

@@ -94,6 +94,20 @@ exports.getProducts = catchAsync(async (req, res, next) => {
 });
 
 /**
+ * @description get single product
+ */
+exports.getSingleProduct = catchAsync(async (req, res, next) => {
+  const { productId } = req.params;
+
+  const products = await ProductModel.findOne({ _id: productId }).populate({
+    path: 'owner',
+    select: 'username displayName photo city country',
+  });
+
+  res.json({ status: 'success', data: products });
+});
+
+/**
  * @description add images to product
  */
 exports.addProductImages = catchAsync(async (req, res, next) => {
