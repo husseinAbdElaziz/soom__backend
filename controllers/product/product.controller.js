@@ -61,7 +61,7 @@ exports.getProducts = catchAsync(async (req, res, next) => {
 
   const currentTime = new Date().toISOString();
 
-  if (productStatus === 'activeDeals') {
+  if (productStatus === 'active') {
     filterData = {
       ...filterData,
       dealStartDate: { $lte: currentTime },
@@ -69,14 +69,14 @@ exports.getProducts = catchAsync(async (req, res, next) => {
     };
   }
 
-  if (productStatus === 'upcomingDeals') {
+  if (productStatus === 'upcoming') {
     filterData = {
       ...filterData,
       dealStartDate: { $gt: currentTime },
     };
   }
 
-  if (productStatus === 'endedDeals') {
+  if (productStatus === 'ended') {
     filterData = {
       ...filterData,
       dealEndDate: { $lt: currentTime },
