@@ -2,11 +2,9 @@ const express = require('express');
 
 const app = express();
 
-if (process.env.NODE_ENV !== 'production') {
-  // apply dot env file
-  const { config } = require('dotenv');
-  config();
-}
+// apply dot env file
+const { config } = require('dotenv');
+config();
 
 // enable CORS
 const cors = require('cors');

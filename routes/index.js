@@ -10,6 +10,9 @@ const product = require('./product/product.routes');
 
 router.use('/product', product);
 
-router.get('/time', (req, res) => res.json({ time: new Date().toISOString() }));
+const timezoneDeff = -180 * 60000;
+router.get('/time', (req, res) =>
+  res.json({ time: new Date(Date.now() - timezoneDeff) })
+);
 
 module.exports = router;
