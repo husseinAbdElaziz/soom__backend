@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 180 180">
+  <g id="Group_6276" data-name="Group 6276" transform="translate(-1004 -579)">
+    <g id="_003-wallet" data-name="003-wallet" transform="translate(1004 586.822)">
+      <g id="Group_5994" data-name="Group 5994" transform="translate(0 25.066)">
+        <g id="Group_5993" data-name="Group 5993">
+          <path id="Path_12435" data-name="Path 12435" d="M153.947,188.517v34.54H20.132a8.2,8.2,0,0,1-8.289-8.289V100.491H0V214.767A20.155,20.155,0,0,0,20.132,234.9H159.868a5.921,5.921,0,0,0,5.921-5.921V188.517Z" transform="translate(0 -100.491)" fill="#efefef"/>
+        </g>
+      </g>
+      <g id="Group_5996" data-name="Group 5996" transform="translate(123.355 74.803)">
+        <g id="Group_5995" data-name="Group 5995">
+          <path id="Path_12436" data-name="Path 12436" d="M401.6,241.965H356.8a5.921,5.921,0,0,0-5.921,5.921v32.368a5.921,5.921,0,0,0,5.921,5.921h44.8a5.921,5.921,0,0,0,5.921-5.921V247.886A5.921,5.921,0,0,0,401.6,241.965Zm-5.921,32.368h-32.96V253.807h32.96Z" transform="translate(-350.877 -241.965)" fill="#efefef"/>
+        </g>
+      </g>
+      <g id="Group_5998" data-name="Group 5998" transform="translate(0 0)">
+        <g id="Group_5997" data-name="Group 5997">
+          <path id="Path_12437" data-name="Path 12437" d="M159.671,64.719H145.46V35.114a5.921,5.921,0,0,0-5.921-5.921H23.684a23.684,23.684,0,0,0,0,47.368H153.75v33.553h11.842V70.64A5.92,5.92,0,0,0,159.671,64.719Zm-26.053,0H23.684a11.842,11.842,0,1,1,0-23.684H133.618Z" transform="translate(0 -29.193)" fill="#efefef"/>
+        </g>
+      </g>
+      <g id="Group_6000" data-name="Group 6000" transform="translate(17.961 17.961)">
+        <g id="Group_5999" data-name="Group 5999">
+          <path id="Path_12438" data-name="Path 12438" d="M172.667,80.281H57.009a5.921,5.921,0,0,0,0,11.842H172.667a5.921,5.921,0,0,0,0-11.842Z" transform="translate(-51.088 -80.281)" fill="#efefef"/>
+        </g>
+      </g>
+    </g>
+    <g id="Rectangle_782" data-name="Rectangle 782" transform="translate(1004 579)" fill="#efefef" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="180" height="180" stroke="none"/>
+      <rect x="0.5" y="0.5" width="179" height="179" fill="none"/>
+    </g>
+  </g>
+</svg>

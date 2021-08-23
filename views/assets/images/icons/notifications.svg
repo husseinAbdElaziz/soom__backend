@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="23" height="26" viewBox="0 0 23 26">
+  <g id="Group_6187" data-name="Group 6187" transform="translate(-6853 -8943.367)">
+    <g id="_005-alarm" data-name="005-alarm" transform="translate(6853.663 8943.367)">
+      <g id="Group_6004" data-name="Group 6004" transform="translate(7.647)">
+        <g id="Group_6003" data-name="Group 6003">
+          <path id="Path_12441" data-name="Path 12441" d="M199.945,0a3,3,0,1,0,3,3A3,3,0,0,0,199.945,0Zm0,4.2a1.187,1.187,0,0,1-1.2-1.2,1.2,1.2,0,1,1,2.4,0A1.187,1.187,0,0,1,199.945,4.2Z" transform="translate(-196.946)"/>
+        </g>
+      </g>
+      <g id="Group_6006" data-name="Group 6006" transform="translate(2.579 4.288)">
+        <g id="Group_6005" data-name="Group 6005">
+          <path id="Path_12442" data-name="Path 12442" d="M105.211,84.448A8.121,8.121,0,0,0,97.144,92.6v5.248h1.8V92.6a6.268,6.268,0,1,1,12.535,0v5.128h1.8V92.6A8.121,8.121,0,0,0,105.211,84.448Z" transform="translate(-97.144 -84.448)"/>
+        </g>
+      </g>
+      <g id="Group_6008" data-name="Group 6008" transform="translate(0 16.794)">
+        <g id="Group_6007" data-name="Group 6007">
+          <path id="Path_12443" data-name="Path 12443" d="M66.75,330.7H47.258a.9.9,0,0,0-.9.9v4.138a.9.9,0,0,0,.9.9H66.75a.9.9,0,0,0,.9-.9V331.6A.9.9,0,0,0,66.75,330.7Zm-.9,4.138H48.157V332.5H65.85Z" transform="translate(-46.358 -330.704)"/>
+        </g>
+      </g>
+      <g id="Group_6010" data-name="Group 6010" transform="translate(6.477 21.832)">
+        <g id="Group_6009" data-name="Group 6009">
+          <path id="Path_12444" data-name="Path 12444" d="M180.452,429.915a2.369,2.369,0,1,1-4.738,0h-1.8a4.168,4.168,0,1,0,8.337,0Z" transform="translate(-173.915 -429.915)"/>
+        </g>
+      </g>
+    </g>
+    <g id="Rectangle_786" data-name="Rectangle 786" transform="translate(6853 8945)" stroke="#707070" stroke-width="1" opacity="0">
+      <rect width="23" height="23" stroke="none"/>
+      <rect x="0.5" y="0.5" width="22" height="22" fill="none"/>
+    </g>
+  </g>
+</svg>

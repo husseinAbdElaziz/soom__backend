@@ -2,9 +2,11 @@ const express = require('express');
 
 const app = express();
 
-// apply dot env file
-const { config } = require('dotenv');
-config();
+if (process.env.NODE_ENV !== 'production') {
+  // apply dot env file
+  const { config } = require('dotenv');
+  config();
+}
 
 // enable CORS
 const cors = require('cors');
@@ -56,6 +58,10 @@ const mkdirp = require('mkdirp');
 // serve static files
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
+app.use('/', express.static(path.join(__dirname, 'views')));
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
 /**
  * error Handlers
  */

@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60" height="60" viewBox="0 0 60 60">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.5" y1="1" x2="0.5" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#fd3a84"/>
+      <stop offset="1" stop-color="#ffa68d"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="0.5" y1="0" x2="0.5" y2="1" xlink:href="#linear-gradient"/>
+  </defs>
+  <g id="Group_6393" data-name="Group 6393" transform="translate(-1550 -1449)">
+    <g id="gavel" transform="translate(1550 1422.229)">
+      <g id="Group_6394" data-name="Group 6394" transform="translate(0 29.771)">
+        <g id="Group_6393-2" data-name="Group 6393" transform="translate(0 0)">
+          <path id="Path_12537" data-name="Path 12537" d="M1.758,68.681H8.789a1.758,1.758,0,1,0,0-3.516H1.758a1.758,1.758,0,0,0,0,3.516ZM3,60.536l6.089,3.516a1.758,1.758,0,0,0,1.758-3.044L4.756,57.491A1.758,1.758,0,0,0,3,60.536ZM58.645,73.991,38.3,51.381a40.861,40.861,0,0,0,3.847-6.236l.562.624a1.758,1.758,0,1,0,2.613-2.352L33.56,30.352A1.758,1.758,0,1,0,30.947,32.7l.562.624a35.477,35.477,0,0,0-10.883,6.3,35.477,35.477,0,0,0-7.408,10.162l-.562-.624a1.758,1.758,0,0,0-2.613,2.352L21.8,64.584a1.758,1.758,0,1,0,2.613-2.352l-.562-.624a40.869,40.869,0,0,0,6.605-3.171l20.348,22.61a5.273,5.273,0,1,0,7.839-7.055Zm-26.261-21.3a33.628,33.628,0,0,1-11.078,6.085l-5.543-6.159a33.628,33.628,0,0,1,7.214-10.378,33.629,33.629,0,0,1,11.078-6.085L39.6,42.318A33.5,33.5,0,0,1,32.384,52.694Zm1,3.741c.461-.359.913-.734,1.35-1.128s.858-.8,1.263-1.224l2.4,2.661L35.781,59.1ZM55.9,78.825a1.757,1.757,0,0,1-2.482-.131L38.133,61.71l2.613-2.352L56.032,76.343A1.757,1.757,0,0,1,55.9,78.825Zm-29.278.4H24.865V77.47A5.279,5.279,0,0,0,19.592,72.2H8.789A5.279,5.279,0,0,0,3.516,77.47v1.758H1.758a1.758,1.758,0,0,0,0,3.516H26.623a1.758,1.758,0,0,0,0-3.516Zm-5.273,0H7.031V77.47a1.76,1.76,0,0,1,1.758-1.758h10.8a1.76,1.76,0,0,1,1.758,1.758Z" transform="translate(0 -29.771)" fill="url(#linear-gradient)"/>
+        </g>
+      </g>
+    </g>
+    <g id="Rectangle_1178" data-name="Rectangle 1178" transform="translate(1550 1449)" stroke="#707070" stroke-width="1" opacity="0" fill="url(#linear-gradient-2)">
+      <rect width="60" height="60" stroke="none"/>
+      <rect x="0.5" y="0.5" width="59" height="59" fill="none"/>
+    </g>
+  </g>
+</svg>
