@@ -10,7 +10,7 @@ import { config } from '../config/config';
  * @param id {string}
  * @returns ObjectId
  */
-export const generateObjectId = (id: string | any) => mongoose.Types.ObjectId(id) as ObjectId;
+export const generateObjectId: any = (id: string | any) => mongoose.Types.ObjectId(id);
 
 /**
  * @description send activation message with link to user mail
