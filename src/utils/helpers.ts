@@ -10,12 +10,12 @@ import { config } from '../config/config';
  * @param id {string}
  * @returns ObjectId
  */
-exports.generateObjectId = (id: string) => mongoose.Types.ObjectId(id);
+export const generateObjectId = (id: string | any) => mongoose.Types.ObjectId(id) as ObjectId;
 
 /**
  * @description send activation message with link to user mail
  */
-exports.sendMailActivationToken = (token: string, userEmail: string) => {
+export const sendMailActivationToken = (token: string, userEmail: string) => {
   sendMail(
     `please active your mail from <a href="${config?.siteUrl}/active-mail/${token}">this link</a>`,
     'Mail Activation',
@@ -28,7 +28,7 @@ exports.sendMailActivationToken = (token: string, userEmail: string) => {
  * @param _id user id
  * @returns JWT token
  */
-exports.generateMailToken = (_id: ObjectId) => {
+export const generateMailToken = (_id: ObjectId) => {
   const token = sign(
     {
       _id,

@@ -1,13 +1,19 @@
 import { Schema, model } from 'mongoose';
 
 const imageSchema = new Schema({
+  fieldname: String,
+  originalname: String,
+  encoding: String,
+  mimetype: String,
+  destination: String,
+  filename: String,
   path: String,
   size: Number,
 });
 
-const productSchema = new Schema(
+const productSchema: Schema = new Schema(
   {
-    ownerId: String,
+    ownerId: { type: String, ref: 'user', required: true },
     name: String,
     country: String,
     city: String,
@@ -58,6 +64,9 @@ const productSchema = new Schema(
     initialPrice: Number,
     lastBidId: { type: Schema.Types.ObjectId, ref: 'transactions' },
     isSoldOut: Boolean,
+
+    // 0 not started , 1 active, 2 timeOut, 3 sold, 4 rejected
+    dealStatus: { type: Number, enum: [0, 1, 2, 3, 4] },
   },
   {
     timestamps: true,
